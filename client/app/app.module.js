@@ -1,7 +1,30 @@
 (function() {
   'use strict';
 
-  angular.module('redditClone', []);
+  var dependencies = [
+    'ui.router',
+    'redditClone.posts',
+  ];
+
+  angular.module('redditClone', dependencies)
+    .config(setupRoutes);
+
+  setupRoutes.$inject = [
+    '$stateProvider',
+    '$urlRouterProvider',
+    '$locationProvider'
+  ];
+
+  function setupRoutes($stateProvider, $urlRouterProvider, $locationProvider){
+    $locationProvider.html5Mode(true);
+    $urlRouterProvider.otherwise("/");
+
+    $stateProvider
+      .state('redditClone', {
+        url: "/",
+        template: "<app></app>"
+      });
+  }
 
 //NEED CORS
 

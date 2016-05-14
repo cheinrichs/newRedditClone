@@ -13,8 +13,8 @@
       }
     }
 
-    controller.$inject = [];
-    function controller(){
+    controller.$inject = ['postService'];
+    function controller(postService){
       var vm = this;
       console.log("nav directive attached");
     }
