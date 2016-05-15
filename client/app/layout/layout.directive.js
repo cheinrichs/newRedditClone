@@ -2,12 +2,12 @@
   'use strict';
 
   angular.module('redditClone')
-    .directive('redditClone', layoutDirective);
+    .directive('rcLayout', layoutDirective);
 
   function layoutDirective () {
     return {
       restrict: 'E',
-      templateUrl: '/app/layout/layout.directive.html',
+      templateUrl: '/layout/layout.directive.html',
       controller: controller,
       controllerAs: 'vm'
     }
@@ -17,7 +17,7 @@
       var vm = this;
 
       activate();
-      
+
       function activate(){
         console.log('layout directive connected');
       }

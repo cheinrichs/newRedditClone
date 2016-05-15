@@ -13,7 +13,7 @@
     factory.$inject = ['$http'];
 
     function factory($http){
-      var musicals = [];
+      var posts = [];
 
       return {
         add: addPost,

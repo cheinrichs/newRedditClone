@@ -22,7 +22,11 @@
     $stateProvider
       .state('redditClone', {
         url: "/",
-        template: "<app></app>"
+        template: "<rc-layout></rc-layout>"
+      })
+      .state('state2', {
+        url: "/posts",
+        template: "<h1>posts page</h1>"
       });
   }
 

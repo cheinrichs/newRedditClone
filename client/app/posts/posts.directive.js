@@ -7,7 +7,7 @@
   function postDirective (){
     return {
       scope: {},
-      templateUrl: '/app/posts/posts.directive.html',
+      templateUrl: '/posts/posts.directive.html',
       controller: controller,
       controllerAs: 'vm'
     }

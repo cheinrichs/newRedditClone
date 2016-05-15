@@ -7,7 +7,7 @@
     function rcNavDirective(){
       return {
         scope: {},
-        templateUrl: '/app/layout/nav.directive.html',
+        templateUrl: '/layout/rcNav.directive.html',
         controller: controller,
         controllerAs: 'vm'
       }
