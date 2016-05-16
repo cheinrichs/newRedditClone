@@ -20,6 +20,10 @@
     activate();
 
     function activate(){
+      postService.list().then(function(res){
+        vm.posts = res;
+        console.log(res);
+      });
       console.log("posts controller connected!");
     }
   }

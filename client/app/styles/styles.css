@@ -1,0 +1,79 @@
+.well {
+  overflow: hidden;
+}
+
+.post {
+    border: 1px solid black;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    background-color: rgba(0,0,0,.5);
+    padding: 10px;
+    margin: 10px;
+    color: white;
+  }
+.thumbnail {
+  position: relative;
+  height: 180px;
+  width: 180px;
+  border: none;
+  background: rgba(0,0,0,.3);
+}
+.description {
+  position: relative;
+  top: 5px;
+}
+.green {
+  color: green;
+}
+.neutral {
+  color: black;
+}
+.red {
+  color: red;
+}
+.invalid {
+  border: 1px solid red;
+  background-color: #FAD2D2;
+}
+.valid {
+  border: 1px solid grey;
+}
+.bottomRow {
+  position: relative;
+  margin: 30px 0px 50px 0px;
+  left: -10px;
+}
+.comments {
+  /*position: relative;
+  top: 20px;*/
+}
+.author {
+  position: relative;
+  top: -30px;
+  left: 90%;
+}
+.ng-enter{
+    transition: 0.5s ease all;
+    opacity: 0;
+}
+.ng-enter.ng-enter-active{
+    opacity: 1;
+}
+
+.ng-leave{
+    transition: 0.5s ease all;
+    opacity: 1;
+}
+
+.ng-leave.ng-leave-active{
+    opacity: 0;
+}
+
+.fade.ng-enter {
+  animation: 2s appear;
+}
+
+.fade.ng-leave {
+  animation: 1s disappear;
+}

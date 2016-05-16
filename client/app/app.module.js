@@ -26,7 +26,7 @@
       })
       .state('state2', {
         url: "/posts",
-        template: "<h1>posts page</h1>"
+        template: "<rc-nav></rc-nav><h1>Page 2</h1>"
       });
   }
 

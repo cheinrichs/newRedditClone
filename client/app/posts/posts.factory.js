@@ -30,7 +30,11 @@
       }
 
       function listPosts(){
-
+        return $http.get('http://localhost:3000/posts')
+          .then(function(response){
+            posts = response.data;
+            return posts;
+          });
       }
     }
 
