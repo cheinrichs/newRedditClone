@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
 router.get('/posts', function(req, res, next){
   knex('posts').then(function(posts){
     knex('comments').then(function(comments){
+      //take all the comments associated with each post and add it to the comments array in each post object
       for (var i = 0; i < posts.length; i++) {
         posts[i].comments = [];
         for (var j = 0; j < comments.length; j++) {
@@ -18,7 +19,18 @@ router.get('/posts', function(req, res, next){
           }
         }
       }
-      res.json(posts);
+      //replace user id's with real author names
+      knex('users').then(function(authors){
+        for (var i = 0; i < posts.length; i++) {
+          for (var j = 0; j < authors.length; j++) {
+            if(posts[i].author === authors[j].id){
+              posts[i].author = authors[j].username;
+            }
+          }
+        }
+        res.json(posts);
+      });
+
     });
   });
 });

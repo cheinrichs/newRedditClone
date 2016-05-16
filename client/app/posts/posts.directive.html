@@ -2,7 +2,9 @@
   {{post}}
 </div>
 
-<div class="row" ng-repeat="post in vm.posts | filter:cloneSearch | orderBy:sortCategory">
+<div ng-init="sortCategory='-votes'"></div>
+
+<div class="row" ng-init="sortCategory='-votes'" ng-repeat="post in vm.posts | filter:cloneSearch | orderBy:sortCategory">
   <div class="post row">
     <img class="thumbnail col-md-2" ng-src="{{post.image}}" alt="">
 
