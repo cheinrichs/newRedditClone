@@ -34,4 +34,19 @@ router.get('/posts', function(req, res, next){
     });
   });
 });
+
+router.post('/addPost', function(req, res, next){
+  knex('posts').insert({
+    title: req.body.title,
+    description: req.body.description,
+    image: req.body.image,
+    votes: 1,
+    date: new Date(),
+    author: 1
+  }).returning('*').then(function(newPost){
+    res.json(newPost);
+  });
+});
+
+
 module.exports = router;

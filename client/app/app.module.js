@@ -22,11 +22,16 @@
     $stateProvider
       .state('redditClone', {
         url: "/",
-        template: "<rc-layout></rc-layout>"
+        template: "<rc-layout></rc-layout>",
+        loginRequired: false
       })
-      .state('state2', {
-        url: "/posts",
-        template: "<rc-nav></rc-nav><h1>Page 2</h1>"
+      .state('login', {
+        url: "/login",
+        template: "<rc-nav></rc-nav><h1>Login Page</h1>"
+      })
+      .state('signup', {
+        url: "/signup",
+        template: "<rc-nav></rc-nav><h1>Sign Up Page</h1>"
       });
   }
 

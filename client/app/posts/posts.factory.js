@@ -14,19 +14,36 @@
 
     function factory($http){
       var posts = [];
+      var showPostForm = false;
+
 
       return {
         add: addPost,
         delete: deletePost,
-        list: listPosts
+        list: listPosts,
+        formVisible: postFormVisible
       }
 
-      function addPost(){
+      function postFormVisible(){
+        showPostForm = !showPostForm;
+        return showPostForm;
+      }
 
+      function addPost(title, image, description){
+        var data = {
+          title: title,
+          image: image,
+          description: description
+        };
+
+        return $http.post('http://localhost:3000/addPost/', data).then(function(res){
+          console.log(res.data[0]);
+          posts.push(res.data[0]);
+        });
       }
 
       function deletePost(){
-
+        //TODO
       }
 
       function listPosts(){
