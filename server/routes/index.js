@@ -48,5 +48,26 @@ router.post('/addPost', function(req, res, next){
   });
 });
 
+router.post('/upvotePost', function(req, res, next){
+  console.log("Upvote Post: " + req.body.id);
+  knex('posts').where({id: req.body.id}).increment('votes', 1).returning('votes').then(function(updatedVotes){
+    console.log(updatedVotes);
+    res.json({newVotes: updatedVotes[0]});
+  });
+});
+
+router.post('/downvotePost', function(req, res, next){
+  console.log("Downvote Post: " + req.body.id);
+  knex('posts').where({id: req.body.id}).decrement('votes', 1).returning('votes').then(function(updatedVotes){
+    console.log(updatedVotes);
+    res.json({newVotes: updatedVotes[0]});
+  });
+});
+
+router.post('/deletePost', function(req, res, next){
+  knex('posts').where({id: req.body.id}).del().returning('*').then(function(updatedPosts){
+    res.json({newPosts: updatedPosts[0]});
+  });
+});
 
 module.exports = router;

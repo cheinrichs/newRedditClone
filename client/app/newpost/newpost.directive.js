@@ -26,7 +26,6 @@
     }
 
     vm.showCreatePost = function (){
-      console.log("show create post!");
       vm.createPost = postService.formVisible();
     }
 

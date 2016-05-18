@@ -10,11 +10,13 @@
 
     <div class="col-md-10">
       <h3>{{post.title}} |
-        <span class="glyphicon glyphicon-arrow-up" ng-click="post.votes = post.votes + 1" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-arrow-down" ng-click="post.votes = post.votes - 1" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-arrow-up" ng-click="vm.upvotePost(post.id)" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-arrow-down" ng-click="vm.downvotePost(post.id)" aria-hidden="true"></span>
         <span class="votes" ng-class="{'green':post.votes > 0, 'neutral': post.votes === 0, 'red': post.votes <0}">{{post.votes}}</span>
       </h3>
-      <div class="author">By {{post.author}}</div>
+      <div class="author">
+        <p>By {{post.author}}</p>
+      </div>
 
       <div class="description">{{post.description}}</div>
 
@@ -37,6 +39,9 @@
           <strong>{{post.author}}:</strong> {{post.comment}}
         </div>
       </div>
+
+      <span class="glyphicon glyphicon-remove deleteButton" aria-hidden="true" ng-click="vm.deletePost(post.id)"></span>
+
     </div>
 
   </div>

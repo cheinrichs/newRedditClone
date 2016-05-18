@@ -78,3 +78,9 @@
 .fade.ng-leave {
   animation: 1s disappear;
 }
+
+.deleteButton {
+  position: relative;
+  top: -20px;
+  left: 80%;
+}

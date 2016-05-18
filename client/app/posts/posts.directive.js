@@ -24,6 +24,21 @@
         vm.posts = res;
       });
     }
+
+    vm.upvotePost = function(id){
+      // console.log("upvoting " + id);
+      postService.upvote(id);
+    }
+
+    vm.downvotePost = function(id){
+      postService.downvote(id);
+    }
+
+    vm.deletePost = function (id){
+      console.log("deleting " + id);
+      postService.deletePost(id);
+    }
+
   }
 
 }());

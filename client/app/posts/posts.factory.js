@@ -21,7 +21,10 @@
         add: addPost,
         delete: deletePost,
         list: listPosts,
-        formVisible: postFormVisible
+        upvote: upvotePost,
+        downvote: downvotePost,
+        formVisible: postFormVisible,
+        deletePost: deletePost
       }
 
       function postFormVisible(){
@@ -37,13 +40,53 @@
         };
 
         return $http.post('http://localhost:3000/addPost/', data).then(function(res){
-          console.log(res.data[0]);
           posts.push(res.data[0]);
         });
       }
 
-      function deletePost(){
-        //TODO
+      function upvotePost(postId){
+        var data = {
+          id: postId
+        }
+        return $http.post('http://www.localhost:3000/upvotePost', data).then(function(res){
+          console.log(res.data);
+          //look through posts and find the votes
+          for (var i = 0; i < posts.length; i++) {
+            if(posts[i].id === postId){
+              posts[i].votes++;
+            }
+          }
+        });
+      }
+
+      function downvotePost(postId){
+        var data = {
+          id: postId
+        }
+        return $http.post('http://www.localhost:3000/downvotePost', data).then(function(res){
+          console.log(res.data);
+          //look through posts and find the votes
+          for (var i = 0; i < posts.length; i++) {
+            if(posts[i].id === postId){
+              posts[i].votes--;
+            }
+          }
+        });
+      }
+
+      function deletePost(postId){
+        console.log("deleting post in factory");
+        var data = {
+          id: postId
+        }
+        return $http.post('http://www.localhost:3000/deletePost', data).then(function(res){
+          console.log();
+          for (var i = 0; i < posts.length; i++) {
+            if(posts[i].id === postId){
+              posts.splice(i, 1);
+            }
+          }
+        })
       }
 
       function listPosts(){
