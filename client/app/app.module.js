@@ -31,7 +31,7 @@
       })
       .state('signup', {
         url: "/signup",
-        template: "<rc-nav></rc-nav><h1>Sign Up Page</h1>"
+        template: "<rc-nav></rc-nav>"
       });
   }
 
